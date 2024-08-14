@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Notas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Registro de Notas</h1>
+    <label for="lab1">Laboratorio 1 (12%)</label>
+    <input type="number" id="lab1" placeholder="Ingrese la nota del Lab 1" step="0.01" min="0" max="10">
+
+    <label for="parcial1">Parcial 1 (18%)</label>
+    <input type="number" id="parcial1" placeholder="Ingrese la nota del Parcial 1" step="0.01" min="0" max="10">
+
+    <label for="lab2">Laboratorio 2 (12%)</label>
+    <input type="number" id="lab2" placeholder="Ingrese la nota del Lab 2" step="0.01" min="0" max="10">
+
+    <label for="parcial2">Parcial 2 (18%)</label>
+    <input type="number" id="parcial2" placeholder="Ingrese la nota del Parcial 2" step="0.01" min="0" max="10">
+
+    <label for="lab3">Laboratorio 3 (16%)</label>
+    <input type="number" id="lab3" placeholder="Ingrese la nota del Lab 3" step="0.01" min="0" max="10">
+
+    <label for="parcial3">Parcial 3 (24%)</label>
+    <input type="number" id="parcial3" placeholder="Ingrese la nota del Parcial 3" step="0.01" min="0" max="10">
+
+    <button onclick="calcularNota()">Calcular Nota Final</button>
+
+    <div class="result" id="resultado"></div>
+</div>
+
+<script>
+    function calcularNota() {
+        let lab1 = parseFloat(document.getElementById('lab1').value) || 0;
+        let parcial1 = parseFloat(document.getElementById('parcial1').value) || 0;
+        let lab2 = parseFloat(document.getElementById('lab2').value) || 0;
+        let parcial2 = parseFloat(document.getElementById('parcial2').value) || 0;
+        let lab3 = parseFloat(document.getElementById('lab3').value) || 0;
+        let parcial3 = parseFloat(document.getElementById('parcial3').value) || 0;
+
+        let notaFinal = (lab1 * 0.12) + (parcial1 * 0.18) + (lab2 * 0.12) +
+                        (parcial2 * 0.18) + (lab3 * 0.16) + (parcial3 * 0.24);
+
+        document.getElementById('resultado').innerText = 'Nota Final: ' + notaFinal.toFixed(2);
+    }
+</script>
+
+</body>
+</html>
